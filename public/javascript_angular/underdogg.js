@@ -11,7 +11,9 @@ var underdoggApp = angular.module('UnderDogg',[
 underdoggApp.config(function ($routeProvider, $locationProvider) {
     console.log('asdasd');
     $routeProvider.
-        when('/', {templateUrl: '/fragment/home/main' }).otherwise({redirectTo: '/'});
+        when('/', {templateUrl: '/fragment/home/main' })
+        .when('/testMain', {templateUrl: '/fragment/test/main'})
+        .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
 });
