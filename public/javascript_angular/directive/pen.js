@@ -12,8 +12,8 @@ underdoggApp.directive('penEditor', [ function() {
                 list: [
                     'blockquote', 'h2', 'h3', 'p', 'insertorderedlist', 'insertunorderedlist',
                     'indent', 'outdent', 'bold', 'italic', 'underline', 'createlink'
-                ],
-                stay: true
+                ]
+               // stay: true
             }
 
             var setModelValue = function(){
