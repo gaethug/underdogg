@@ -3,8 +3,16 @@
         <div class="row section">
             <div class="col-md-12">
                 <div class="content">
-                    <p class="pull-right modified">{{dummy.Modified | moment:'MM월DD일 HH시mm분 작성'}}</p>
                     <div ng-bind-html="dummy.Content"></div>
+                    <br>
+                    <br>
+                    <div class="well well-lg">
+                        <div class=" pull-right">
+                            <button type="button" class="btn btn-warning" ng-click="goEdit(dummy._id)"><i class="glyphicon glyphicon-wrench"></i> 수정</button>
+                            <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> 삭제</button>
+                        </div>
+                        <div class="modified"><code>{{dummy.Modified | moment:'MM월 DD일 HH시 mm분'}}</code></div>
+                    </div>
                 </div>
             </div>
         </div>

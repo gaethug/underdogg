@@ -19,7 +19,14 @@ exports.index = function(req, res){
 
 };
 exports.show = function(req, res){
-
+    var id = req.params.id;
+    Dummy.findOne({_id:id}).exec(function (err, doc) {
+        if (err) {
+            res.send({result: "FAIL", ERR: err});
+        } else {
+            res.send({dummy: doc, result: "SUCCESS"});
+        }
+    });
 };
 exports.create = function(req, res){
     var dummy =  req.body;
@@ -33,7 +40,16 @@ exports.create = function(req, res){
     });
 };
 exports.update = function(req, res){
-
+    var dummy =req.body;
+    var dummyId = req.params.id;
+    Dummy.update({_id:dummyId}, dummy, function(err){
+        if(err){
+            console.log(err);
+            res.send({result:"FAIL", err:err});
+        }else{
+            res.send({result: "SUCCESS"});
+        }
+    });
 };
 exports.destroy = function(req, res){
 

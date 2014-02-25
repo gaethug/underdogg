@@ -1,4 +1,4 @@
-underdoggApp.directive('penEditor', [ function() {
+underdoggApp.directive('penEditor', function($timeout) {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -29,10 +29,12 @@ underdoggApp.directive('penEditor', [ function() {
                     }
                 }
             });
-            setTimeout(function(){
+            $timeout(function(){
                 editor = new Pen(options);
                 console.log(editor);
+
                 editor.config.editor.innerHTML = ngModel.$viewValue || '';
+
                 editor.config.editor.addEventListener('keypress', function(e) {
                     console.log('keypress');
                     setModelValue();
@@ -41,10 +43,10 @@ underdoggApp.directive('penEditor', [ function() {
                     console.log('paste');
                     setModelValue();
                 });
-            },0);
+            },100);
 
         }
 
     };
 
-}]);
+});

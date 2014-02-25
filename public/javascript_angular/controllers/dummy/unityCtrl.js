@@ -11,7 +11,7 @@ underdoggApp.controller('dummyMainCtrl',function($rootScope,$scope,Modal){
             {result: 'ok', label: '닫기'}], function(){});
     };
 });
-underdoggApp.controller('dummyListCtrl',function($rootScope, $scope, dummyRest){
+underdoggApp.controller('dummyListCtrl',function($rootScope, $scope, $location,dummyRest){
     $scope.dummies = [];
     var getDummies = function(){
         dummyRest.query(function(data){
@@ -22,18 +22,42 @@ underdoggApp.controller('dummyListCtrl',function($rootScope, $scope, dummyRest){
     };
     getDummies();
 
-});
-underdoggApp.controller('dummyCreateCtrl',function($rootScope,$scope,$location,Modal,dummyRest){
-    console.log('asdasd');
-    $scope.Content = "<h2>제목</h2><h3>작은 제목</h3><div>본문을 작성해 주세요.</div>";
-    $scope.somethingAttached = "";
+    $scope.goEdit = function(dummyId){
+        $location.path('/dummyEdit/'+dummyId);
+    };
 
+});
+underdoggApp.controller('dummyCreateCtrl',function($routeParams, $rootScope,$scope,$location,Modal,dummyRest){
+    $scope.dummyId = $routeParams.dummyId||'';
+    if($scope.dummyId == ""){
+        //create
+        $scope.Content = "<h2>큰 제목</h2><h3>작은 제목</h3><div>본문을 작성해 주세요.</div>";
+        $scope.somethingAttached = "";
+    }else{
+        //edit
+        var getDummy = function(){
+            dummyRest.get({dummyId:$scope.dummyId},function(data){
+                if(!!data){
+                    $scope.Content = data.dummy.Content;
+                }
+            });
+        };
+        getDummy();
+    }
     /*$scope.$watch('Content',function(newVal){
         console.log(newVal);
     });
     */
     $scope.createDummy = function(){
         dummyRest.create({}, {Content:$scope.Content}, function (data) {
+            console.log(data);
+            if (data.result == 'SUCCESS') {
+                $location.path("/dummyList");
+            }
+        });
+    };
+    $scope.editDummy = function(){
+        dummyRest.update({dummyId:$scope.dummyId}, {Content:$scope.Content}, function (data) {
             console.log(data);
             if (data.result == 'SUCCESS') {
                 $location.path("/dummyList");
