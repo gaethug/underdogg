@@ -6,8 +6,8 @@
                     <div class="pull-right">
                         <div class="modified">
                             <strong>{{dummy.Modified | moment:'MM월 DD일 HH시 mm분'}}</strong>
-                            <span class="glyphicon glyphicon-wrench pointer text-warning" ng-click="goEdit(dummy._id)"></span>
-                            <span class="glyphicon glyphicon-trash pointer text-danger"></span>
+                            <span class="glyphicon glyphicon-wrench pointer" ng-click="goEdit(dummy._id)"></span>
+                            <span class="glyphicon glyphicon-trash pointer"></span>
                         </div>
                     </div>
                     <div ng-bind-html="dummy.Content"></div>

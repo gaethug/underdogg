@@ -17,7 +17,46 @@
                 </tab>
                 <tab heading="이미지 업로드">
                     <div class="well well-lg">
-                        <p>이미지 업로드</p>
+                        <form id="fileupload"  enctype="multipart/form-data" file-upload="options" ng-class="{'fileupload-processing': processing() || loadingFiles}">
+                            <div class="row fileupload-buttonbar" ng-show="queue.length==0">
+                                <div class="col-md-12">
+                                    <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
+                                        <i class="fa fa-picture-o"></i>
+                                        <span>파일 선택</span>
+                                        <input type="file" name="userfile" ng-disabled="disabled">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="standby_nav ng-cloak well well-sm"  ng-show="queue.length>0" ng-repeat="file in queue"  ng-class="{'processing': file.$processing()}">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="name">
+                                            <span class="badge badge-danger" ng-show="file.error">{{file.error}}</span>
+                                            {{file.name}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="size">
+                                            {{file.size | formatFileSize}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-primary start btn-xs" ng-click="file.$submit()" ng-hide="!file.$submit || options.autoUpload" ng-disabled="file.$state() == 'pending' || file.$state() == 'rejected'">
+                                            <i class="glyphicon glyphicon-upload"></i>
+                                            <span>업로드</span>
+                                        </button>
+                                        <button type="button" class="btn btn-warning cancel  btn-xs" ng-click="file.$cancel()" ng-hide="!file.$cancel">
+                                            <i class="glyphicon glyphicon-ban-circle"></i>
+                                            <span>취소</span>
+                                        </button>
+                                        <button ng-controller="fileDestroyController" type="button" class="btn btn-danger destroy btn-xs" ng-click="file.$destroy(destroyCallback)" ng-hide="!file.$destroy">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                            <span>업로드 취소</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </tab>
                 <tab heading="동영상 링크">

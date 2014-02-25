@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var underdoggApp = angular.module('UnderDogg',[
-    'ngRoute','ngAnimate','ngCookies','ngResource','ngSanitize','ngTouch','ui.bootstrap']);
+    'ngRoute','ngAnimate','ngCookies','ngResource','ngSanitize','ngTouch','ui.bootstrap', 'blueimp.fileupload']);
 
 underdoggApp.config(function ($routeProvider, $locationProvider) {
     console.log('asdasd');
@@ -55,4 +55,43 @@ underdoggApp.controller('attachCtrl',function($scope, $modalInstance){
     $scope.close = function(){
         $modalInstance.close();
     };
+});
+underdoggApp.controller('fileDestroyController',function($http,$scope){
+    var file = $scope.file,
+        state;
+    if (file.url) {
+        file.$state = function () {
+            return state;
+        };
+        file.$destroy = function (callback) {
+            state = 'pending';
+            return $http({
+                url: file.deleteUrl,
+                method: file.deleteType
+            }).then(
+                function () {
+                    state = 'resolved';
+
+                    if(!!callback){
+                        callback();
+                    }
+
+                    $scope.clear(file);
+
+
+                    //-_- 부모가 머네
+                    /*if(angular.isDefined($scope.$parent.$parent)){
+                     $scope.$parent.$parent.$parent.uploadedPath = "";
+                     }*/
+                },
+                function () {
+                    state = 'rejected';
+                }
+            );
+        };
+    } else if (!file.$cancel && !file._index) {
+        file.$cancel = function () {
+            $scope.clear(file);
+        };
+    }
 });
