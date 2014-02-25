@@ -1,26 +1,41 @@
 <div class="modal-header">
-    <h4>뭔가 첨부하기</h4>
+    <h4>뭔가 첨부하기 (작업중)</h4>
 </div>
 <div class="modal-body">
-    <tabset justified="true">
-        <tab heading="이미지 업로드">
-            <div class="well well-lg">
-                <p>이미지 업로드</p>
-            </div>
-        </tab>
-        <tab heading="동영상 링크">
-            <div class="well well-lg">
-                <p>동영상 링크</p>
-            </div>
-        </tab>
-        <tab heading="코드 삽입">
-            <div class="well well-lg">
-                <p>아마도 ACE IDE가 오지 싶다.</p>
-            </div>
-        </tab>
-    </tabset>
+    <div class="row" id="ModalAttach">
+        <div class="col-md-12">
+            <tabset justified="true">
+                <tab heading="이미지 링크">
+                    <div class="well well-lg">
+                        <p>이미지 링크좀염</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input class="form-control" ng-model="attach.ImageURL">
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="이미지 업로드">
+                    <div class="well well-lg">
+                        <p>이미지 업로드</p>
+                    </div>
+                </tab>
+                <tab heading="동영상 링크">
+                    <div class="well well-lg">
+                        <p>동영상 링크</p>
+                    </div>
+                </tab>
+                <tab heading="코드 삽입">
+                    <div class="well well-lg">
+                        <p>아마도 ACE IDE가 오지 싶다.</p>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+
 </div>
 <div class="modal-footer">
-    <button ng-click="close()" class="btn btn-default" >닫기</button>
-    <button ng-click="close()" class="btn btn-primary" >확인</button>
+    <button class="btn btn-default" ng-click="close()" >닫기</button>
+    <button class="btn btn-primary" ng-click="attachSomething()" >확인</button>
 </div>

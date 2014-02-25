@@ -26,6 +26,7 @@ underdoggApp.controller('dummyListCtrl',function($rootScope, $scope, dummyRest){
 underdoggApp.controller('dummyCreateCtrl',function($rootScope,$scope,$location,Modal,dummyRest){
     console.log('asdasd');
     $scope.Content = "<h2>제목</h2><h3>작은 제목</h3><div>본문을 작성해 주세요.</div>";
+    $scope.somethingAttached = "";
 
     /*$scope.$watch('Content',function(newVal){
         console.log(newVal);
@@ -44,7 +45,10 @@ underdoggApp.controller('dummyCreateCtrl',function($rootScope,$scope,$location,M
             templateUrl:  '/fragment/modal/attach',
             controller: 'attachCtrl'
         }, function(result){
-            if(result!="FAIL"){
+            if(!!result){
+                if(result.ImageURL != ""){
+                    $scope.somethingAttached = "<div><img src='"+result.ImageURL+"'></div>";
+                }
             }
         });
     };

@@ -22,6 +22,13 @@ underdoggApp.directive('penEditor', [ function() {
 
                 });
             };
+            scope.$watch('somethingAttached', function(newVal){
+                if(!!newVal){
+                    if(newVal != ""){
+                        editor.config.editor.innerHTML += newVal;
+                    }
+                }
+            });
             setTimeout(function(){
                 editor = new Pen(options);
                 console.log(editor);

@@ -46,7 +46,11 @@ underdoggApp.controller('messageModal',function($scope, $modalInstance, model){
     };
 });
 underdoggApp.controller('attachCtrl',function($scope, $modalInstance){
-
+    $scope.attach = {};
+    $scope.attach.ImageURL = "";
+    $scope.attachSomething = function(){
+        $modalInstance.close($scope.attach);
+    };
     $scope.close = function(){
         $modalInstance.close();
     };
