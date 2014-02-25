@@ -2,15 +2,14 @@
     <div class="container">
         <div class="row section">
             <div class="col-lg-12 col-md-12">
-                <div pen-editor ng-model="content"></div>
+                <div pen-editor ng-model="Content"></div>
                 <br>
                 <br>
                 <div class="well well-lg">
                     <button type="button" class="btn btn-primary" ng-click="showAttachPopup()"><i class="glyphicon glyphicon-paperclip"></i> 삽입</button>
-                    <button type="button" class="btn btn-danger pull-right"><i class="glyphicon glyphicon-pencil"></i> 작성 완료</button>
+                    <button type="button" class="btn btn-danger pull-right" ng-click="createDummy()"><i class="glyphicon glyphicon-pencil"></i> 작성 완료</button>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
