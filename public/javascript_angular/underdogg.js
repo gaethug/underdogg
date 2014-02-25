@@ -21,6 +21,7 @@ underdoggApp.config(function ($routeProvider, $locationProvider) {
 });
 underdoggApp.controller('mainCtrl',function($rootScope,$scope){
     console.log('asdasd');
+    moment.lang('ko');
 
 });
 

@@ -14,7 +14,7 @@ underdoggApp.controller('dummyMainCtrl',function($rootScope,$scope,Modal){
 underdoggApp.controller('dummyListCtrl',function($rootScope, $scope, dummyRest){
     $scope.dummies = [];
     var getDummies = function(){
-        dummyRest.query({},{},function(data){
+        dummyRest.query(function(data){
             if(!!data){
                 $scope.dummies = data.dummies;
             }

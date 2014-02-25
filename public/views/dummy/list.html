@@ -1,9 +1,10 @@
-<div class="sectional color{{$index}}" ng-repeat="dummy in dummies">
+<div id="DummyList" class="sectional color{{($index%4)+1}}" ng-repeat="dummy in dummies">
     <div class="container">
         <div class="row section">
             <div class="col-md-12">
                 <div class="content">
-                    <div bind-html="dummy.Content"></div>
+                    <p class="pull-right modified">{{dummy.Modified | moment:'MM월DD일 HH시mm분 작성'}}</p>
+                    <div ng-bind-html="dummy.Content"></div>
                 </div>
             </div>
         </div>

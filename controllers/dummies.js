@@ -7,6 +7,7 @@
  */
 var Dummy = require('../models/dummy.js');
 exports.index = function(req, res){
+    console.log('index dummy');
     Dummy.find({}).sort({_id: -1}).exec(function (err, docs) {
         if (err) {
             res.send({result: "FAIL", ERR: err});

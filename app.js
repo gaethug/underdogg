@@ -35,7 +35,7 @@ mongoose.connection.on('open', function() {
 
 app.get('/', routes.index);
 app.get('/fragment/:type/:name', routes.fragments);
-app.get('*', routes.index);
+
 
 var prefixes = ['dummies'];
 prefixes.forEach(function(prefix) {
@@ -43,7 +43,7 @@ prefixes.forEach(function(prefix) {
     map.mapRoute(app, prefix);
 });
 
-
+app.get('*', routes.index);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

@@ -17,10 +17,4 @@ exports.mapRoute = function (app, prefix) {
     // destroy
     app.del(prefix + '/:id', prefixObj.destroy);
 
-    //etc
-    switch (prefix) {
-        case "/dummies":
-            break;
-    }
-
 };
