@@ -26,7 +26,7 @@ app.use(app.router);
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-mongoose.connect('mongodb://hoho:ghtjdWkdWkdaos@localhost:27017/underdogg');
+mongoose.connect('mongodb://hoho:ghtjdWkdWkdaos@127.0.0.1:27017/underdogg');
 //mongoose.connect('mongodb://ttwr:ghtjd0482@localhost:27017/underdogg');
 mongoose.connection.on('open', function() {
     console.log('Connected to Mongoose');
