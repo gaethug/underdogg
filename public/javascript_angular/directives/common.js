@@ -13,7 +13,7 @@ underdoggApp.directive('activeNav', ['$location', function($location) {
             var nestedA = element.find('a')[0];
             var path = nestedA.href;
             //console.log(path);
-            var tabs = ['Create','List'];
+            var tabs = ['Create','List', 'Edit'];
             var currentPage = "";
             scope.location = $location;
             scope.$watch('location.absUrl()', function(newPath) {
