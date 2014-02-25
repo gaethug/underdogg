@@ -3,14 +3,16 @@
         <div class="row section">
             <div class="col-md-12">
                 <div class="content">
+                    <div ng-bind-html="dummy.Content"></div>
                     <div class="pull-right">
                         <div class="modified">
-                            <strong>{{dummy.Modified | moment:'MM월 DD일 HH시 mm분'}}</strong>
-                            <span class="glyphicon glyphicon-wrench pointer" ng-click="goEdit(dummy._id)"></span>
-                            <span class="glyphicon glyphicon-trash pointer"></span>
+                            <code>
+                                <strong>{{dummy.Modified | moment:'MM월 DD일 HH시 mm분'}}</strong>
+                                <span class="glyphicon glyphicon-wrench pointer" ng-click="goEdit(dummy._id)"></span>
+                                <span class="glyphicon glyphicon-trash pointer"></span>
+                            </code>
                         </div>
                     </div>
-                    <div ng-bind-html="dummy.Content"></div>
                 </div>
             </div>
         </div>
