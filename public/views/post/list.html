@@ -1,0 +1,21 @@
+<div id="DummyList" class="sectional color{{($index%4)+1}}" ng-repeat="post in posts">
+    <div class="container">
+        <div class="row section">
+            <div class="col-md-12">
+                <div class="content">
+                    <div class="pull-right">
+                        <div class="modified">
+                            <code>
+                                <strong>{{post.Modified | moment:'MM월 DD일 HH시 mm분'}}</strong>
+                                <span class="glyphicon glyphicon-wrench pointer" ng-click="goEdit(post._id)"></span>
+                                <span class="glyphicon glyphicon-trash pointer"></span>
+                            </code>
+                        </div>
+                    </div>
+                    <div ng-bind-html="post.Content"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

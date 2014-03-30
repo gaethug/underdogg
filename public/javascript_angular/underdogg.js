@@ -16,6 +16,7 @@ underdoggApp.config(function ($routeProvider, $locationProvider) {
         .when('/dummyCreate', {templateUrl: '/fragment/dummy/create', controller:'dummyCreateCtrl'})
         .when('/dummyEdit/:dummyId', {templateUrl: '/fragment/dummy/create', controller:'dummyCreateCtrl'})
         .when('/dummyList', {templateUrl: '/fragment/dummy/list', controller:'dummyListCtrl'})
+        .when('/postList', {templateUrl: '/fragment/post/list', controller:'postListCtrl'})
         .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
