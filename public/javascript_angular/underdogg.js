@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var underdoggApp = angular.module('UnderDogg',[
-    'ngRoute','ngAnimate','ngCookies','ngResource','ngSanitize','ngTouch','ui.bootstrap', 'blueimp.fileupload']);
+    'ngRoute','ngAnimate','ngCookies','ngResource','ngSanitize','ngTouch','ui.bootstrap', 'blueimp.fileupload', 'infinite-scroll']);
 
 underdoggApp.config(function ($routeProvider, $locationProvider) {
     console.log('asdasd');

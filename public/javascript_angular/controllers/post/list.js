@@ -7,15 +7,19 @@
  */
 underdoggApp.controller('postListCtrl',function($rootScope, $scope, $location,postRest){
     $scope.posts = [];
-    var getDummies = function(){
-        postRest.query(function(data){
+    $scope.pager = 0;
+    $scope.perPage = 4;
+    var getList = function(page, perPage){
+        postRest.query({page:page / perPage, perpage : perPage},function(data){
             if(!!data){
                 $scope.posts = data.posts;
             }
         });
     };
-    getDummies();
-
+    $scope.loadMore = function(){
+        getList($scope.pager, $scope.perPage);
+    };
+    $scope.loadMore();
     $scope.goEdit = function(dummyId){
         $location.path('/postEdit/'+dummyId);
     };

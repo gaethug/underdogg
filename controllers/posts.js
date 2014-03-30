@@ -16,19 +16,9 @@ exports.index = function(req, res){
     if(category!= null && category !="ALL" ){
         options = {Category:category};
     }*/
-    var perPage = 6, page = req.query.page > 0 ? req.query.page : 0
-    var category = req.query.category=="ALL"?{}:{Category:req.query.category};
-    var order = {_id:-1};
-    if(req.body.search != ""){
-        var re = new RegExp(req.query.search, 'i');
-        category['$or'] = [];
-        category['$or'].push({"Title":{$regex:re}});
-        category['$or'].push({"Contents":{$regex:re}});
-    }
-    if(req.query.sort == "on"){
-        order= {'ModifiedComment':-1,_id:-1};
-    }
-    Post.find(category).sort(order).limit(perPage)
+    var perPage =req.query.perpage, page = req.query.page > 0 ? req.query.page : 0;
+
+    Post.find().limit(perPage)
         .skip(perPage * page).exec(function(err, docs) {
             res.send({title:'Posts', posts:docs, result:"OK"});
         });
