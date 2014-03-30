@@ -13,7 +13,9 @@ underdoggApp.controller('postListCtrl',function($rootScope, $scope, $location,po
         $scope.busy = true;
         postRest.query({page:page / perPage, perpage : perPage},function(data){
             if(!!data){
-                $scope.posts = data.posts;
+                angular.forEach(data.posts, function(post){
+                    $scope.posts.push(post);
+                });
                 $scope.pager += $scope.perPage;
             }
             $scope.busy = false;

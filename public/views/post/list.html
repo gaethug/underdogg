@@ -4,16 +4,15 @@
         <div class="row section">
             <div class="col-md-12">
                 <div class="content">
-                    <h2>{{post.Title}}</h2>
                     <div class="pull-right">
                         <div class="modified">
-                            <code>
                                 <strong>{{post.Modified | moment:'MM월 DD일 HH시 mm분'}}</strong>
                                 <span class="glyphicon glyphicon-wrench pointer" ng-click="goEdit(post._id)"></span>
                                 <span class="glyphicon glyphicon-trash pointer"></span>
-                            </code>
                         </div>
                     </div>
+                    <h2>{{post.Title}}</h2>
+
                     <div ng-bind-html="post.Contents"></div>
 
                 </div>
