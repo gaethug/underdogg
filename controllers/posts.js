@@ -19,7 +19,7 @@ exports.index = function(req, res){
     var perPage =req.query.perpage, page = req.query.page > 0 ? req.query.page : 0;
 
     Post.find().limit(perPage)
-        .skip(perPage * page).exec(function(err, docs) {
+        .skip(perPage * page).order({_id:-1}).exec(function(err, docs) {
             res.send({title:'Posts', posts:docs, result:"OK"});
         });
 };
