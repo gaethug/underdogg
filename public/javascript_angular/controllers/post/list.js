@@ -6,11 +6,11 @@
  * To change this template use File | Settings | File Templates.
  */
 underdoggApp.controller('postListCtrl',function($rootScope, $scope, $location,postRest){
-    $scope.dummies = [];
+    $scope.posts = [];
     var getDummies = function(){
         postRest.query(function(data){
             if(!!data){
-                $scope.dummies = data.dummies;
+                $scope.posts = data.posts;
             }
         });
     };
