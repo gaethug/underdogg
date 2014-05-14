@@ -1,28 +1,47 @@
-<div id="PostMain" class="sectional color3b">
+<div id="PostMain" class="sectional">
     <div class="container">
         <div class="row section">
             <div class="col-md-12">
-
-                <div class="jumbotron color3b">
-                    <h2><small><strong>{{post.Modified|moment:'YYYY.MM.DD HH:mm'}}</strong>&nbsp; {{post.FirstWriter.name}}작성 </small><br><strong>{{post.Title}}</strong></h2>
+                <h2>
+                    <strong>{{post.Title}}</strong>
                     <br>
-                    <!-- Thanks to Billy McClure at GoodRx for the funniest answer to "What's a newsletter that nobody would ever sign up for?" -->
-                    <div class="bindedContents" binded-contents ng-bind-html="post.Contents"></div>
-                    <br>
-                    <a href="/postList" class="btn color2">목록</a>
+                    <small><strong>{{post.Modified|moment:'YYYY.MM.DD HH:mm'}}</strong>&nbsp; {{post.FirstWriter.name}}작성 </small>
+                </h2>
+                <br>
+                <div class="bindedContents" binded-contents ng-bind-html="post.Contents"></div>
+                <br>
+                <div class="well color3b">
+                    <a href="/" class="btn color2">목록</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div id="PostMainComment" class="sectional color4">
-    <h2 class="sectional-title"><strong></strong>댓글 달기</h2>
+<div id="PostMainComment" class="sectional color2">
+    <h2 class="sectional-title"><strong></strong>댓글</h2>
     <div class="container">
         <div class="row section">
             <div class="col-md-8 col-md-offset-2">
                 <textarea ui-tinymce ng-model="Comment.My"></textarea>
+                <button class="btn btn-sm btn-primary pull-right">작성</button>
+                <br>
+                <div class="media" ng-repeat="comment in post.Comments">
+                    <div class="media-body">
+                        <h6 class="media-heading">
+                            <span class="text-muted glyphicon glyphicon-user"></span>
+                            <a ng-href="{{comment.profileUrl}}" target="_blank"> {{comment.name}}</a>
+                            <small>
+                                <span timeago ng-model="comment.posted"></span>
+                            </small>
+                            <button ng-if="User.displayName == comment.name" type="button" class="close pull-right" aria-hidden="true" ng-click="deleteComment(comment._id)">&times;</button>
+                        </h6>
+                        {{comment.text}}
+                    </div>
+                </div>
             </div>
+
+
         </div>
     </div>
 </div>

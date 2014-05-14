@@ -8,7 +8,7 @@ angular.module('ui.tinymce',[])
         menubar:false,
         skin:"light",
         statusbar: false,
-        height: 300,
+        height: 120,
         plugins: "advlist, autolink, lists, link, code, table, image, textcolor, link ",
         toolbar: 'bold italic | forecolor | fontsizeselect | alignleft aligncenter alignright alignjustify  | removeformat | hr link | bullist numlist | table | qulkyimageuploadbutton | code | qulkyrejectbutton',
         //content_css: 'http://www.qulky.com/stylesheets/bootflat_qulky.css',

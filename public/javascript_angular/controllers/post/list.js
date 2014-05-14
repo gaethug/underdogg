@@ -8,7 +8,7 @@
 underdoggApp.controller('postListCtrl',function($rootScope, $scope, $location,postRest){
     $scope.posts = [];
     $scope.pager = 0;
-    $scope.perPage = 4;
+    $scope.perPage = 6;
     var getList = function(page, perPage){
         $scope.busy = true;
         var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,

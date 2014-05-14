@@ -10,12 +10,12 @@ var underdoggApp = angular.module('UnderDogg',[
 
 underdoggApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.
-        when('/', {templateUrl: '/fragment/home/main' })
-        .when('/dummyMain', {templateUrl: '/fragment/dummy/main', controller:'dummyMainCtrl'})
+        when('/',  {templateUrl: '/fragment/post/list', controller:'postListCtrl'})
+        /*.when('/dummyMain', {templateUrl: '/fragment/dummy/main', controller:'dummyMainCtrl'})
         .when('/dummyCreate', {templateUrl: '/fragment/dummy/create', controller:'dummyCreateCtrl'})
         .when('/dummyEdit/:dummyId', {templateUrl: '/fragment/dummy/create', controller:'dummyCreateCtrl'})
-        .when('/dummyList', {templateUrl: '/fragment/dummy/list', controller:'dummyListCtrl'})
-        .when('/postList', {templateUrl: '/fragment/post/list', controller:'postListCtrl'})
+        .when('/dummyList', {templateUrl: '/fragment/dummy/list', controller:'dummyListCtrl'})*/
+        //.when('/postList', {templateUrl: '/fragment/post/list', controller:'postListCtrl'})
         .when('/postMain/:postId', {templateUrl: '/fragment/post/main', controller:'postMainCtrl'})
         .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
