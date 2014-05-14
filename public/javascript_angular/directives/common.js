@@ -5,7 +5,15 @@
  * Time: 오후 6:09
  * To change this template use File | Settings | File Templates.
  */
-
+underdoggApp.directive('dotdotodt', function($timeout) {
+    return {
+        link: function(scope, element, attrs) {
+            $timeout(function(){
+                element.dotdotdot({watch:"window"});
+            },0);
+        }
+    }
+});
 underdoggApp.directive('activeNav', ['$location', function($location) {
     return {
         restrict: 'A',

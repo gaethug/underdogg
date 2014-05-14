@@ -1,23 +1,25 @@
-<div class="infinite_wrapper" infinite-scroll="loadMore()" infinite-scroll-distance="0" infinite-scroll-disabled='busy'>
-<div id="DummyList" class="sectional color{{($index%4)+1}}" ng-repeat="post in posts"  >
+<div id="PostList" class="sectional color3b">
     <div class="container">
-        <div class="row section">
-            <div class="col-md-12">
-                <div class="content">
-                    <div class="pull-right">
-                        <div class="modified">
-                                <strong>{{post.Modified | moment:'MM월 DD일 HH시 mm분'}}</strong>
-                                <span class="glyphicon glyphicon-wrench pointer" ng-click="goEdit(post._id)"></span>
-                                <span class="glyphicon glyphicon-trash pointer"></span>
+        <div class="row section infinite_wrapper" infinite-scroll="loadMore()" infinite-scroll-distance="0"
+             infinite-scroll-disabled='busy'>
+            <div class="col-sm-6 col-md-4" ng-repeat="post in posts">
+                <form class="panel">
+                    <div class="panel-heading color3a">
+                        <h3 class="panel-title" dotdotodt>{{post.Title}}</h3>
+                    </div>
+                    <div class="panel-body color3c">
+                        <div class="caption_content" dotdotodt ng-hide="post.AttachedImage">{{post.Contents}}</div>
+
+                        <div class="caption_content_with_image" ng-show="post.AttachedImage">
+                            <div class="img_wrapper"><img class="img-rounded" ng-src="{{post.AttachedImage}}"></div>
+                            <div class="content" dotdotodt>{{post.Contents}}</div>
                         </div>
                     </div>
-                    <h2>{{post.Title}}</h2>
-
-                    <div ng-bind-html="post.Contents"></div>
-
-                </div>
+                    <div class="panel-footer color3c">
+                        <a href="/postMain/{{post._id}}" class="btn btn-default btn-lg btn-block color3a">보기</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 </div>

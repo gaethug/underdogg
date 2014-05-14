@@ -2,3 +2,19 @@
 @import "./bootstrap/bootstrap.less"; // bootstrap
 @import "1pxdeep.less"; // 1pxdeep theme
 @import "underdogg.less"; // your own styles
+
+#PostList{
+  .panel{
+    .panel-title {height: 19px;}
+    .panel-body {
+      .caption_content{
+        height: 80px;
+      }
+      .caption_content_with_image{
+        .img_wrapper{width:50%; overflow:hidden; float:left; padding:0 5px; img{ width: 100%; height:80px; }}
+        .content{width:50%;height: 80px; float:left; padding:0 5px; }
+      }
+
+    }
+  }
+}

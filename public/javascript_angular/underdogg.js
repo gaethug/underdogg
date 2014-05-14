@@ -6,10 +6,9 @@
  * To change this template use File | Settings | File Templates.
  */
 var underdoggApp = angular.module('UnderDogg',[
-    'ngRoute','ngAnimate','ngCookies','ngResource','ngSanitize','ngTouch','ui.bootstrap', 'blueimp.fileupload', 'infinite-scroll']);
+    'ngRoute','ngAnimate','ngCookies','ngResource','ngSanitize','ngTouch','ui.bootstrap', 'blueimp.fileupload', 'ui.tinymce', 'infinite-scroll']);
 
 underdoggApp.config(function ($routeProvider, $locationProvider) {
-    console.log('asdasd');
     $routeProvider.
         when('/', {templateUrl: '/fragment/home/main' })
         .when('/dummyMain', {templateUrl: '/fragment/dummy/main', controller:'dummyMainCtrl'})
@@ -17,6 +16,7 @@ underdoggApp.config(function ($routeProvider, $locationProvider) {
         .when('/dummyEdit/:dummyId', {templateUrl: '/fragment/dummy/create', controller:'dummyCreateCtrl'})
         .when('/dummyList', {templateUrl: '/fragment/dummy/list', controller:'dummyListCtrl'})
         .when('/postList', {templateUrl: '/fragment/post/list', controller:'postListCtrl'})
+        .when('/postMain/:postId', {templateUrl: '/fragment/post/main', controller:'postMainCtrl'})
         .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');

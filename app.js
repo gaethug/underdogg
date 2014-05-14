@@ -27,9 +27,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 //mongoose.connect('mongodb://hoho:ghtjdWkdWkdaos@underdogg.iptime.org:27017/underdogg');
-mongoose.connect('mongodb://hoho:ghtjdWkdWkdaos@127.0.0.1:27017/underdogg');
-//mongoose.connect('mongodb://ttwr:ghtjd0482@localhost:27017/underdogg');
-//mongoose.connect('mongodb://ttwr:ghtjd0482@ds037737.mongolab.com:37737/ttwr-blog');
+//mongoose.connect('mongodb://hoho:ghtjdWkdWkdaos@127.0.0.1:27017/underdogg');
+//mongoose.connect('mongodb://localhost:27017/underdogg');
+mongoose.connect('mongodb://ttwr:ghtjd0482@ds037737.mongolab.com:37737/ttwr-blog');
 
 mongoose.connection.on('open', function() {
     console.log('Connected to Mongoose');
